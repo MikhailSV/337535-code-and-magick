@@ -33,31 +33,32 @@
 </footer>
 
 <script>
-        var fireballSize = 22;
-        var getFireballSpeed = function(left) {
-            if (left == true) {
-                return 5;
-            } else {
-                return 2;
-            }
-            return fireballSpeed;
-        };
+  var fireballSize = 22;
+  var getFireballSpeed = function(left) {
+    if (left == true) {
+      return 5;
+    } else {
+      return 2;
+    }
+    return fireballSpeed;
+  };
 
-        var wizardSpeed = 3;
-        var wizardWidth = 70;
-        var getWizardHeight = function() {
-            var wizardHeight = 1.337 * wizardWidth;
-            return wizardHeight;
-        };
-        var getWizardX = function(width) {
-            gendalfLocationX = (width * 0.5) - (wizardWidth * 0.5);
-            return gendalfLocationX;
-        };
+  var wizardSpeed = 3;
+  var wizardWidth = 70;
+  var getWizardHeight = function() {
+    var wizardHeight = 1.337 * wizardWidth;
+    return wizardHeight;
+  };
+  
+  var getWizardX = function(width) {
+  var gendalfLocationX = (width * 0.5) - (wizardWidth * 0.5);
+  return gendalfLocationX;
+  };
 
-        var getWizardY = function(height) {
-            var gendalfLocationY = height * (1-(2/3));
-            return gendalfLocationY;
-        }
+  var getWizardY = function(height) {
+  var gendalfLocationY = height * (1-(2/3));
+  return gendalfLocationY;
+  };
     </script>
 <script src="js/game.js" type="application/javascript"></script>
 
