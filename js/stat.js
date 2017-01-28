@@ -39,4 +39,3 @@ window.renderStatistics = function (ctx, names, times) {
     ctx.fillText(Math.round(time), 150 + 90 * i, (statHeight - Math.round(time)) - 10);
   }
 };
-renderStatistics(ctx, names, tames);
