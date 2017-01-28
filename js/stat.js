@@ -10,32 +10,35 @@ window.renderStatistics = function (ctx, names, times) {
 
   ctx.fillStyle = '#000';
   ctx.font = '16px PT Mono';
-  ctx.fillText('Ура вы победили!', 110, 25);
-  ctx.fillText('Список результатов', 110, 40);
+  ctx.fillText('Ура вы победили!', 110, 45);
+  ctx.fillText('Список результатов', 110, 60);
 
-  var statHeight = 240;
+  var statHeight = 150;
   var statWidth = 40;
+  var colorStationIfirs = 'rgba(0, 0,';
+  var colorStationIsecond = ')';
   for (var i = 0; i < names.length; i++) {
     var time = times[i];
     var name = names[i];
     var colorGamerStatA = (Math.floor(Math.random() * 10)) * 0.1;
-    var colorGamerStatB = (Math.floor(Math.random() * 255));
-
+    var colorGamerStatB = 255 - (Math.floor(Math.random() * 50));
     if (name === 'Вы') {
       var colorStationI = 'rgba(255, 0, 0, 1)';
     } else {
-      var colorStationI = '"rgba(0, 0,' + colorGamerStatB + ',' + colorGamerStatA + ')"';
+      var colorStationI = colorStationIfirs + colorGamerStatB + ',' + colorGamerStatA + colorStationIsecond;
 
     }
+    var catTime = Math.round(time / 100)
+
     ctx.fillStyle = colorStationI;
-    ctx.fillRect(150 + 90 * i, statHeight - Math.round(time), statWidth, Math.round(time));
+    ctx.fillRect(150 + 90 * i, (statHeight - catTime), statWidth, catTime + 80);
 
     ctx.fillStyle = '#000';
     ctx.font = '14px PT Mono';
-    ctx.fillText(name, 150 + 90 * i, 260);
+    ctx.fillText(name, 150 + 90 * i, 250);
 
     ctx.fillStyle = '#000';
     ctx.font = '14px PT Mono';
-    ctx.fillText(Math.round(time), 150 + 90 * i, (statHeight - Math.round(time)) - 10);
+    ctx.fillText(catTime, 150 + 90 * i, (statHeight - catTime) - 10);
   }
 };
