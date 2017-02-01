@@ -1,24 +1,26 @@
 'use strict';
 
-var creatureRandomColor = function (names) {
-  for (var i = 0; i < names.length; i++) {
+var creatureRandomColor = function ( ) {
     var colorStationIfirst = 'rgba(0, 0,';
     var colorStationIsecond = ')';
     var colorGamerStatShade = (Math.floor(Math.random() * 10)) * 0.1;
     var colorGamerStatСlarity = 215 + (Math.floor(Math.random() * 50));
     var colorStationI = colorStationIfirst + colorGamerStatСlarity + ',' + colorGamerStatShade + colorStationIsecond;
-  }
   return colorStationI;
 };
 
 var drawStatistic = function (ctx, names, times) {
   var statHeight = 150;
   var statWidth = 40;
+  var maxTime = -1;
   for (var i = 0; i < times.length; i++) {
+    var maxTime = Math.max.apply(Math, times);
     var time = times[i];
     var name = names[i];
-    var cutTime = Math.round(time / 100);
-
+    var pesentMaxStat = time / maxTime
+    var startStatPoint = 230;
+    var endStatPoint = startStatPoint - 150 * pesentMaxStat
+    var heightStat = startStatPoint - endStatPoint;
     if (name === 'Вы') {
       var colorForStatUser = 'rgba(255, 0, 0, 1)';
     } else {
@@ -26,7 +28,7 @@ var drawStatistic = function (ctx, names, times) {
     }
 
     ctx.fillStyle = colorForStatUser;
-    ctx.fillRect(150 + 90 * i, (statHeight - cutTime), statWidth, cutTime + 80);
+    ctx.fillRect(150 + 90 * i, endStatPoint, statWidth, heightStat);
 
     ctx.fillStyle = '#000';
     ctx.font = '14px PT Mono';
@@ -34,7 +36,7 @@ var drawStatistic = function (ctx, names, times) {
 
     ctx.fillStyle = '#000';
     ctx.font = '14px PT Mono';
-    ctx.fillText(cutTime, 150 + 90 * i, (statHeight - cutTime) - 10);
+    ctx.fillText(Math.round(time), 150 + 90 * i, endStatPoint - 10);
   }
 };
 
@@ -48,8 +50,8 @@ window.renderStatistics = function (ctx, names, times) {
 
   ctx.fillStyle = '#000';
   ctx.font = '16px PT Mono';
-  ctx.fillText('Ура вы победили!', 110, 45);
-  ctx.fillText('Список результатов', 110, 60);
+  ctx.fillText('Ура вы победили!', 110, 40);
+  ctx.fillText('Список результатов', 110, 55);
 
   drawStatistic(ctx, names, times);
 };
