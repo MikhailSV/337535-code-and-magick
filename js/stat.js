@@ -1,11 +1,11 @@
 'use strict';
 
 var createRandomColor = function ( ) {
-    var colorStatUserfirst = 'rgba(0, 0,';
-    var colorStatUsersecond = ')';
-    var colorGamerStatShade = (Math.floor(Math.random() * 10)) * 0.1;
-    var colorGamerStatСlarity = 215 + (Math.floor(Math.random() * 50));
-    var colorStatUser = colorStatUserfirst + colorGamerStatСlarity + ',' + colorGamerStatShade + colorStatUsersecond;
+  var colorStatUserfirst = 'rgba(0, 0,';
+  var colorStatUsersecond = ')';
+  var colorGamerStatShade = (Math.floor(Math.random() * 10)) * 0.1;
+  var colorGamerStatСlarity = 215 + (Math.floor(Math.random() * 50));
+  var colorStatUser = colorStatUserfirst + colorGamerStatСlarity + ',' + colorGamerStatShade + colorStatUsersecond;
   return colorStatUser;
 };
 
@@ -16,14 +16,14 @@ var drawStatistic = function (ctx, names, times) {
   for (var i = 0; i < times.length; i++) {
     var time = times[i];
     var name = names[i];
-    var pesentMaxStat = time / maxTime
+    var pesentMaxStat = time / maxTime;
     var startStatPoint = 230;
-    var endStatPoint = startStatPoint - statHeight * pesentMaxStat
+    var endStatPoint = startStatPoint - statHeight * pesentMaxStat;
     var heightStat = startStatPoint - endStatPoint;
     if (name === 'Вы') {
       var colorForStatUser = 'rgba(255, 0, 0, 1)';
     } else {
-      var colorForStatUser = createRandomColor(names);
+      colorForStatUser = createRandomColor(names);
     }
 
     ctx.fillStyle = colorForStatUser;
@@ -33,8 +33,6 @@ var drawStatistic = function (ctx, names, times) {
     ctx.font = '14px PT Mono';
     ctx.fillText(name, 150 + 90 * i, 250);
 
-    ctx.fillStyle = '#000';
-    ctx.font = '14px PT Mono';
     ctx.fillText(Math.round(time), 150 + 90 * i, endStatPoint - 10);
   }
 };
