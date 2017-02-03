@@ -23,7 +23,7 @@ var drawStatistic = function (ctx, names, times) {
     if (name === 'Вы') {
       var colorForStatUser = 'rgba(255, 0, 0, 1)';
     } else {
-      colorForStatUser = createRandomColor(names);
+      var colorForStatUser = createRandomColor(names);
     }
 
     ctx.fillStyle = colorForStatUser;
