@@ -1,6 +1,6 @@
 'use strict';
 
-var createRandomColor = function ( ) {
+var createRandomColor = function () {
   var colorStatUserfirst = 'rgba(0, 0,';
   var colorStatUsersecond = ')';
   var colorGamerStatShade = (Math.floor(Math.random() * 10)) * 0.1;
@@ -23,7 +23,7 @@ var drawStatistic = function (ctx, names, times) {
     if (name === 'Вы') {
       var colorForStatUser = 'rgba(255, 0, 0, 1)';
     } else {
-      var colorForStatUser = createRandomColor(names);
+      colorForStatUser = createRandomColor(names);
     }
 
     ctx.fillStyle = colorForStatUser;
