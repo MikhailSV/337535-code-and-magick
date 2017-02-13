@@ -11,11 +11,9 @@ var colorCoat = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)'
 var colorEyes = ['black', 'red', 'blue', 'yellow', 'green'];
 var colorFireBall = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
-var searchingRandomColorIndex = function () {
-  var i = Math.floor(Math.random() * colorCoat.length);
-  return i;
+var getRandomColorIndex = function () {
+  return Math.floor(Math.random() * colorCoat.length);
 };
-searchingRandomColorIndex(colorCoat);
 
 setupOpen.addEventListener('click', function () {
   setup.classList.remove('invisible');
@@ -25,12 +23,12 @@ setupClose.addEventListener('click', function () {
 });
 
 wizardCoat.addEventListener('click', function () {
-  wizardCoat.style.fill = colorCoat[searchingRandomColorIndex(colorCoat)];
+  wizardCoat.style.fill = colorCoat[getRandomColorIndex(colorCoat)];
 });
 
 wizardEyes.addEventListener('click', function () {
-  wizardEyes.style.fill = colorEyes[searchingRandomColorIndex(colorCoat)];
+  wizardEyes.style.fill = colorEyes[getRandomColorIndex(colorCoat)];
 });
 wizarFireBall.addEventListener('click', function () {
-  wizarFireBall.style.background = colorFireBall[searchingRandomColorIndex(colorCoat)];
+  wizarFireBall.style.background = colorFireBall[getRandomColorIndex(colorCoat)];
 });
