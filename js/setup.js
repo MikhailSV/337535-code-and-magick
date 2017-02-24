@@ -20,8 +20,6 @@ var pressedEventClose = function (evt) {
   return evt.keyCode && evt.keyCode === ESC_KEY_CODE;
 };
 
-
-
 var showElemenByPress = function () {
   setup.classList.remove('invisible');
   document.addEventListener('keydown', function (evt) {
